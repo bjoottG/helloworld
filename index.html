@@ -19,6 +19,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             display: inline-block; /* Gör att containern bara är så bred som innehållet */
             max-width: 500px; /* Maxbredd för containern */
+            margin-bottom: 30px; /* Extra marginal under formuläret */
         }
         label {
             display: block; /* Placerar frågan på en egen rad */
@@ -60,6 +61,24 @@
             color: #007bff; /* Blå färg för meddelandet */
             font-weight: bold;
         }
+
+        /* Styling för bilden */
+        .image-container {
+            margin-top: 40px; /* Marginal ovanför bilden */
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 80%; /* Bilden blir max 80% av skärmbredden */
+            height: auto; /* Bibehåller proportionerna */
+            border: 5px solid #88cccc; /* En turkos ram runt bilden */
+            border-radius: 10px; /* Lätt rundade hörn */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* En lätt skugga */
+        }
+        .image-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -70,6 +89,11 @@
             <button type="submit">Skicka svar</button>
         </form>
         <div id="responseMessage"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="PXL_20250511_071152569.jpg" alt="En beskrivande text om bilden">
+        <p class="image-caption">En fin bild från en solig dag.</p>
     </div>
 
     <script>
@@ -85,6 +109,7 @@
                 // Här kan du göra något med namnet, t.ex. visa det på sidan
                 responseMessageDiv.textContent = `Hej, ${name}! Tack för ditt svar.`;
                 nameInput.value = ''; // Rensa inmatningsfältet
+                responseMessageDiv.style.color = "#007bff"; // Återställ färg till blå
             } else {
                 responseMessageDiv.textContent = "Vänligen skriv in ditt namn.";
                 responseMessageDiv.style.color = "red"; // Gör texten röd vid fel
